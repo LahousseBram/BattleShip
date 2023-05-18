@@ -1,0 +1,8 @@
+{
+  "http": {
+    "port": <some-port>
+  },
+  "api" : {
+    "url": <some-url>
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "http": {
+    "port": 8034
+  },
+  "api" : {
+    "url": "http://172.18.18.201/2022-2023/battleship-api-spec/openAPI-battleship.yaml"
+  }
+}

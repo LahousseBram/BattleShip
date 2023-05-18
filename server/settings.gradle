@@ -1,0 +1,3 @@
+rootProject.name = 'battleship'
+
+include 'server', 'vertx-web-bearer'

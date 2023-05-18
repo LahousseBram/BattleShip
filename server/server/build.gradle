@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id "io.vertx.vertx-plugin" version "1.4.0"
+    id 'jacoco'
+    id "org.sonarqube" version "3.4.0.2513"
+    id("com.github.johnrengelman.shadow") version "7.0.0"
+}
+
+group 'be.howest.ti'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+
+    implementation "io.vertx:vertx-web"
+    implementation "io.vertx:vertx-config"
+    implementation "io.vertx:vertx-web-openapi"
+
+    testImplementation "io.vertx:vertx-junit5"
+    testImplementation "io.vertx:vertx-web-client"
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.4.2'
+
+
+    // Needed to compile the missing classes.
+    implementation "io.vertx:vertx-codegen"
+
+    // FIX WARNING : Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider
+    // https://stackoverflow.com/questions/69481239/can-not-find-io-netty-resolver-dns-macos-macosdnsserveraddressstreamprovider
+    runtimeOnly 'io.netty:netty-all:4.1.86.Final'
+
+    implementation project(':vertx-web-bearer')
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+
+vertx {
+    mainVerticle = "be.howest.ti.battleship.web.WebServer"
+    vertxVersion = "4.3.4"
+}
