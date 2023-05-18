@@ -1,0 +1,468 @@
+:root {
+    --grid-size: 3rem;
+    --tile-gap: 0.1rem;
+    --tile-size: calc(var(--grid-size) - var(--tile-gap));
+
+    --selected-tile: #D9D9D9;
+    --normal-tile-color: #1CA3EC66;
+    --normal-boat-background-hover:#666464;
+    --exploded-tile-color: #999999;
+}
+
+body {
+    display: flex;
+    flex-wrap: nowrap;
+    max-height: 1080px;
+    background-image: url("../img/viking.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+section {
+    flex-grow: 3;
+    padding: 5vh 2rem;
+    text-align: center;
+    position: relative;
+}
+
+h2 {
+    font-size: 5rem;
+    padding-left: var(--grid-size);
+}
+
+aside {
+    background-color: rgba(217, 217, 217, 0.8);
+    flex-grow: 1;
+    min-width: 10rem;
+    height: 100vh;
+}
+
+.gameboard {
+    display: grid;
+    /*center board*/
+    margin: 2rem auto 0 auto;
+    width: 33rem;
+    font-size: 1rem;
+    font-family: 'Bungee', cursive;
+
+}
+
+.smallBoard {
+    grid-template-columns: repeat(11, var(--grid-size));
+    grid-template-rows: repeat(11, var(--grid-size));
+}
+
+.bigBoard {
+    --grid-size: 2rem;
+    --tile-size: calc(var(--grid-size) - var(--tile-gap));
+    grid-template-columns: repeat(16, var(--grid-size));
+    grid-template-rows: repeat(16, var(--grid-size));
+}
+
+.board-tile, .column-header, .row-header {
+    width: var(--tile-size);
+    height: var(--tile-size);
+    text-align: center;
+    line-height: var(--tile-size);
+}
+
+.column-header:first-of-type {
+    grid-column-start: 2;
+}
+
+.board-tile {
+    background-color: var(--normal-tile-color);
+    border: 0.05rem solid rgba(0, 0, 0, 0.3);
+}
+
+.previewing {
+    background-color: var(--selected-tile);
+}
+
+.deg-0 {
+    rotate: 0deg;
+}
+
+.deg-90 {
+    rotate: 90deg;
+}
+
+.deg-180 {
+    rotate: 180deg;
+}
+
+.deg-270 {
+    rotate: 270deg;
+}
+
+.cruiser-1 {
+    background: var(--normal-tile-color) url("../img/ships/cruiser-1.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.cruiser-2 {
+    background: var(--normal-tile-color) url("../img/ships/cruiser-2.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.cruiser-3 {
+    background: var(--normal-tile-color) url("../img/ships/cruiser-3.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+
+.destroyer-1 {
+    background: var(--normal-tile-color) url("../img/ships/destroyer-1.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.destroyer-2 {
+    background: var(--normal-tile-color) url("../img/ships/destroyer-2.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.submarine-1 {
+    background: var(--normal-tile-color) url("../img/ships/submarine-1.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.submarine-2 {
+    background: var(--normal-tile-color) url("../img/ships/submarine-2.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.submarine-3 {
+    background: var(--normal-tile-color) url("../img/ships/submarine-3.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.battleship-1 {
+    background: var(--normal-tile-color) url("../img/ships/battleship-1.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.battleship-2 {
+    background: var(--normal-tile-color) url("../img/ships/battleship-2.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.battleship-3 {
+    background: var(--normal-tile-color) url("../img/ships/battleship-3.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.battleship-4 {
+    background: var(--normal-tile-color) url("../img/ships/battleship-4.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.carrier-1 {
+    background: var(--normal-tile-color) url("../img/ships/carrier-1.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.carrier-2 {
+    background: var(--normal-tile-color) url("../img/ships/carrier-2.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.carrier-3 {
+    background: var(--normal-tile-color) url("../img/ships/carrier-3.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.carrier-4 {
+    background: var(--normal-tile-color) url("../img/ships/carrier-4.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.carrier-5 {
+    background: var(--normal-tile-color) url("../img/ships/carrier-5.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+h2, h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+#timer{
+    text-align: center;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-top: 2rem;
+
+    text-transform: uppercase;
+}
+
+span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 3rem;
+    color: white;
+}
+
+#ships {
+    margin: 3rem auto 0 auto;
+    width: 90%;
+    height: 35rem;
+    border: solid 0.2rem darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#board-actions {
+    width: 90%;
+    margin: 4rem auto 1rem auto;
+    display: flex;
+}
+
+button, input[type="button"], a {
+    width: 10rem;
+    height: 3rem;
+    border-radius: 1rem;
+    border: none;
+    background-color: #666464;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+a {
+    width: 12rem;
+    line-height: 3rem;
+}
+
+a:hover {
+    border: none;
+    box-shadow: none;
+}
+
+button:hover, input[type="button"]:hover, a:hover {
+    color: #666464;
+    background-color: white;
+}
+
+#create, #history-btn {
+    margin-bottom: 1rem;
+}
+
+.select-ship {
+    height: 5rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.select-ship:hover {
+    background-color: var(--normal-boat-background-hover);
+}
+
+.invalid {
+    background-color: red;
+}
+
+.missed-missile {
+    background-color: var(--exploded-tile-color);
+}
+
+.ship-hit {
+    background: var(--exploded-tile-color) url("../img/explosion.png") no-repeat;
+    background-size: var(--tile-size);
+}
+
+.overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(255,255,255,.6);
+    z-index: 10;
+}
+
+
+
+.winner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#sunkenShipsPlayer {
+    background-color: rgba(217, 217, 217, 0.8);
+    width: 35rem;
+    height: 10rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.3rem;
+}
+
+#sunkenShipsEnemy {
+    background-color: rgba(217, 217, 217, 0.8);
+    width: 35rem;
+    height: 10rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1.3rem;
+}
+
+
+
+.sunken-ship {
+    width: auto;
+    height: 35%;
+}
+
+#simple {
+    background-image: url("../img/bomb.svg");
+}
+
+#salvo {
+    background-image: url("../img/rocket.svg");
+}
+
+#move {
+    background-image: url("../img/wind.svg");
+}
+
+.turn-type {
+    font-family: Inter, sans-serif;
+    font-size: 2rem;
+    padding: 1rem 1rem 1rem 4rem;
+    margin: 1rem;
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    background-position: 1rem;
+}
+
+.selectable {
+    cursor: pointer;
+}
+
+.turn-type:not(.selectable) {
+    color: darkgray;
+    filter: invert(80%) sepia(0%) saturate(625%) hue-rotate(141deg) brightness(86%) contrast(85%);
+}
+
+.selectable:hover {
+    background-color: var(--normal-boat-background-hover);
+}
+
+.selected {
+    background-color: var(--normal-boat-background-hover);
+}
+
+#winner-container {
+    display: flex;
+    margin-top: 3rem;
+    justify-content: space-between;
+    width: 25rem;
+}
+
+.salvo-select {
+    background-image: url("../img/pirate-x.png");
+    background-repeat: no-repeat;
+    background-size: var(--tile-size);
+}
+
+#history {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 40%;
+    height: 80%;
+    background-color: var(--selected-tile);
+    z-index: 100;
+    border-radius: 1rem;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+#history h2 {
+    padding-left: 0;
+    font-size: 4rem;
+    width: fit-content;
+    display: inline;
+}
+
+#close-btn {
+    cursor: pointer;
+    font-size: 5rem;
+    line-height: 2.5rem;
+    float: right;
+}
+
+.history-turn p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.history-turn strong {
+    font-weight: bold;
+}
+
+.history-turn li {
+    margin-bottom: 1rem;
+}
+
+.game-type {
+    z-index: 50;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game-type button {
+    width: 20rem;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+#join-game {
+    width: 20rem;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+input[type="text"] {
+    display: block;
+    width: 20rem;
+    height: 2.7rem;
+    border-radius: 1rem;
+    border: solid 0.1rem #666464;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#start-game, #board-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+}
+
+#start-game {
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-game button {
+    width: 12rem;
+}
+
+.hidden {
+    display: none;
+}

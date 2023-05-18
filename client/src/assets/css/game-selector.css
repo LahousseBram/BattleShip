@@ -1,0 +1,105 @@
+body {
+    background-image: url("../img/viking.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: black;
+    font-size: 5rem;
+    text-align: center;
+    background-color: #D9D9D9;
+    width: 50rem;
+    height: 10rem;
+    line-height: 10rem;
+    margin: 7rem auto 2rem;
+    border-radius: 1rem;
+}
+li {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    display: inline-block;
+    width: 20rem;
+    line-height: 8rem;
+    background-color: #D9D9D9;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 1rem;   
+}
+
+#gameSelector li:nth-child(2){
+    margin-left: 10rem;
+    margin-right: 10rem;
+    cursor: pointer;
+}
+
+#regular {
+    background-image: url("../img/bomb.svg");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position: 2rem center;
+    
+}
+
+#salvo {
+    background-image: url("../img/rocket.svg");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position: 3.5rem center;
+    
+}
+
+#gameSelector {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#move {
+    background-image: url("../img/wind.svg");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position: 3.5rem center;
+
+}
+
+#buttons{
+    margin-top: 3rem;
+    width: 100%;
+    text-align: center;
+}
+
+#buttons a {
+    cursor: pointer;
+}
+
+#buttons a:first-child {
+    margin-right: 10rem;
+}
+
+.selectedGame {
+    background-color: #666464;
+}
+
+.selectedBoardSize {
+    background-color: #666464;
+}
+
+#bordSize {
+    margin-top: 3rem;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+#bordSize li:nth-child(2){
+    margin-left: 10rem;
+}
+
+
+
+

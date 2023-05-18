@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Battleship - create game</title>
+
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/screen.css">
+    <link rel="stylesheet" href="../assets/css/create-game.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/data-connector/error-handler.js"></script>
+    <script src="../assets/js/data-connector/api-communication-abstractor.js"></script>
+    <script src="../assets/js/data-connector/local-storage-abstractor.js"></script>
+    <script src="../assets/js/initialiser.js"></script>
+    <script src="../assets/js/before-game/copy-id.js"></script>
+    <script src="../assets/js/before-game/lobby-type.js"></script>
+    <script src="../assets/js/before-game/show-username.js"></script>
+
+
+</head>
+<body>
+    <main>
+        <aside>
+        <h1>Game lobby</h1>
+        <button id="lobby-type" class="private">private</button>
+        </aside>
+        <div id="game">
+            <section>
+                <h2>GAME ID</h2>
+                <p>Share you code to play with friends</p>
+                <form method="post">
+                    <input type="text" name="game-id" id="game-id" value="No code available" readonly>
+                </form>
+
+                <button id="copy-id">Copy ID</button>
+            </section>
+
+            <section>
+                <h2>JOINED PLAYERS</h2>
+                <ul>
+                    <li class="owner"></li>
+                    <li></li>
+                </ul>
+            </section>
+        </div>
+
+        <div>
+        <a id="back-game-selector" href="../game-selector/">Back</a>
+        <a id="start-game" href="../game/">Start</a>
+        </div>
+
+    </main>
+</body>
+</html>

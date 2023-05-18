@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Battleship - Game Selector</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/screen.css">
+    <link rel="stylesheet" href="../assets/css/game-selector.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/data-connector/error-handler.js"></script>
+    <script src="../assets/js/data-connector/api-communication-abstractor.js"></script>
+    <script src="../assets/js/initialiser.js"></script>
+    <script src="../assets/js/data-connector/local-storage-abstractor.js"></script>
+
+    <script src="../assets/js/before-game/game-selector.js"></script>
+
+</head>
+<body>
+<div class="errormessages"></div>
+<h1>Game Selector</h1>
+
+<ul id="gameSelector">
+    <li id="regular" class="selectedGame">Regular</li>
+    <li id="salvo">Salvo</li>
+    <li id="move">Move</li>
+</ul>
+
+<ul id="bordSize">
+    <li id="smallBoard" class="selectedBoardSize">10X10</li>
+    <li id="bigBoard">15X15</li>
+
+</ul>
+
+<div id="buttons">
+    <a id="back-to-homescreen" href="../">back</a>
+    <a id="continue-invite-player" href="../game/">continue</a>
+</div>
+</body>
+</html>

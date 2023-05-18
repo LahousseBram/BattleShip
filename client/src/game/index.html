@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Battleship</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/screen.css">
+    <link rel="stylesheet" href="../assets/css/game.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script src="../assets/js/config.js"></script>
+
+    <script src="../assets/js/data-connector/error-handler.js"></script>
+    <script src="../assets/js/data-connector/api-communication-abstractor.js"></script>
+    <script src="../assets/js/data-connector/local-storage-abstractor.js"></script>
+
+    <script src="../assets/js/initialiser.js"></script>
+
+    <script src="../assets/js/game/clear-board.js"></script>
+    <script src="../assets/js/game/rotate-boats.js"></script>
+    <script src="../assets/js/game/fire-missile.js"></script>
+
+    <script src="../assets/js/game/create-game.js"></script>
+    <script src="../assets/js/game/history.js"></script>
+    <script src="../assets/js/game/move.js"></script>
+    <script src="../assets/js/game/turn-type-selector.js"></script>
+    <script src="../assets/js/game/place-ships.js"></script>
+    <script src="../assets/js/game/random-ship-placement.js"></script>
+    <script src="../assets/js/game/select-ships.js"></script>
+    <script src="../assets/js/game/game-initialiser.js"></script>
+    <script src="../assets/js/game/start-game.js"></script>
+    <script src="../assets/js/game/matching-engine.js"></script>
+    <script src="../assets/js/game/display-usernames.js"></script>
+    <script src="../assets/js/game/sunken-ships.js"></script>
+    <script src="../assets/js/before-game/copy-id.js"></script>
+</head>
+<body>
+    <div class="errormessages"></div>
+    <section id="player-board">
+        <h2>player</h2>
+        <div class="gameboard"></div>
+        <div class="overlay hidden"></div>
+        <div id="sunkenShipsPlayer"></div>
+    </section>
+    <aside>
+        <div id="ships"></div>
+
+        <div id="board-actions">
+            <button id="random">Random</button>
+            <button id="clear">Clear</button>
+        </div>
+        <div id="start-game">
+            <button id="create">Place Ships</button>
+            <a href="../" id="leave">Leave Game</a>
+        </div>
+    </aside>
+    <div>
+
+    </div>
+    <section id="enemy-board">
+        <h2>enemy</h2>
+        <div class="gameboard"></div>
+        <div class="overlay">
+            <div id="game-type-buttons" class="hidden">
+                <form method="post" id="join-game-form">
+                    <input type="text" name="join-game" id="join-game-input" placeholder="Put Game-Id Here">
+                    <input type="button" name="joinGame" id="join-game" value="Join Game">
+                </form>
+                <button id="public-game">Public Game</button>
+                <button id="private-game">Private Game</button>
+                <form method="post" id="privateGameForm" class="hidden">
+                    <input type="text" name="game-id" id="game-id" value="No code available" readonly>
+                    <button id="copy-id">Copy-Id</button>
+                </form>
+            </div>
+        </div>
+        <div id="sunkenShipsEnemy"></div>
+    </section>
+    <aside id="history" class="hidden">
+        <h2>History</h2>
+    </aside>
+</body>
+</html>
